@@ -1,0 +1,875 @@
+Home Page Styling
+.homepage {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 20px;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.auth-buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.navbar {
+  background-color: #333;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.navbar li {
+  margin: 0 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #007BFF;
+}
+
+.body {
+  padding: 50px;
+  text-align: center;
+}
+
+.about-section {
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-header h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.about-header p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.about-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.card h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1em;
+  color: #777;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.about-left, .about-right {
+  flex: 1;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-btn {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  margin-right: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.about-btn:hover {
+  background-color: #0056b3;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  font-size: 18px;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #0056b3;
+}
+.about-section {
+  margin: 40px;
+}
+
+.card-section {
+  margin-bottom: 40px;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+}
+
+.flip-card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-back {
+  background-color: #f4f4f4;
+  color: black;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 90%;
+    margin: 10px auto;
+  }
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px;
+}
+/* Basic Styling for Cards */
+.card {
+  width: 30%;
+  margin: 10px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flip-container {
+  perspective: 1000px;
+}
+
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flipper:hover {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  background: #ddd;
+}
+
+.back {
+  background: #f8f8f8;
+  transform: rotateY(180deg);
+}
+
+/* Footer Styling */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.footer-column {
+  width: 30%;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-row {
+    flex-direction: column;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+/* Basic Styling for Cards */
+.card {
+  width: 100%;
+  margin: 10px 0;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.student-divisions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.division {
+  width: 48%;
+}
+
+hr {
+  margin: 20px 0;
+  border: 1px solid #ccc;
+}
+
+/* Footer Styling */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.footer-column {
+  width: 30%;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .student-divisions {
+    flex-direction: column;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.homepage {
+  width: 100%;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.auth-buttons button {
+  margin: 0 10px;
+}
+
+/* Navbar Section */
+.navbar {
+  background-color: #444;
+  color: white;
+  padding: 10px 0;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+/* About Section */
+.about-section {
+  padding: 50px;
+}
+
+.about-header {
+  text-align: center;
+}
+
+.student-divisions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.division {
+  width: 45%;
+}
+
+.card {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Societies and Boards Section */
+.societies-boards {
+  margin-top: 40px;
+}
+
+.flip-blocks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flip-block {
+  width: 30%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.flip-block .front,
+.flip-block .back {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  border-radius: 8px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-block .back {
+  background-color: #bbb;
+  transform: rotateY(180deg);
+}
+
+.flip-block:hover .front {
+  transform: rotateY(180deg);
+}
+
+.flip-block:hover .back {
+  transform: rotateY(0deg);
+}
+
+h3 {
+  text-align: center;
+}
+
+/* Footer Section */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  background-color: #333;
+  color: white;
+}
+
+.footer-column {
+  width: 30%;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 10px;
+}
+
+/* Copyright Section */
+.copyright {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+
+
+
+
+/* Background for the Intro Section */
+.intro-section {
+  position: relative;
+  height: 300px;
+  background-image: url('your-background-image.jpg'); /* Add your background image URL here */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Slight dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.intro-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.intro-content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.intro-content p {
+  font-size: 1.5rem;
+}
+
+/* Additional Styling for About Section */
+.about-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.about-header h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.about-header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #333;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-column {
+  width: 30%;
+}
+
+.footer-column h4 {
+  font-size: 1.5rem;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column .social-links a {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+
+.homepage {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.auth-buttons button {
+  margin: 5px;
+  padding: 10px;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 10px;
+}
+
+.about-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.background-section {
+  background-image: url('your-background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.overlay {
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.overlay p {
+  font-size: 20px;
+  margin: 5px;
+}
+
+.societies-boards {
+  margin-top: 30px;
+}
+
+.flip-blocks {
+  display: flex;
+  justify-content: center; /* Centering all blocks */
+  flex-wrap: wrap; /* Allowing wrapping of blocks to next row */
+  gap: 15px; /* Reduced gap between blocks */
+}
+
+.flip-block {
+  width: 220px; /* Increased size for society and board blocks */
+  height: 220px;
+  margin: 10px;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-block.sac-acac {
+  width: 280px; /* Larger size for SAC and ACAC blocks */
+  height: 280px;
+}
+
+.flip-block .front, .flip-block .back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.flip-block:hover .front {
+  transform: rotateY(180deg);
+}
+
+.flip-block .back {
+  background-color: #f0f0f0;
+  transform: rotateY(180deg);
+  padding: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #333;
+  color: white;
+}
+
+.footer-column h4, .footer-column ul {
+  margin-bottom: 20px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column .social-links a {
+  margin-right: 15px;
+}
+
+.footer-column .social-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+}
+
+
+/* Horizontal line layout */
+.horizontal-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 2px solid #000;  /* Optional: Add a horizontal line */
+  padding: 20px 0;
+}
+
+.sac-block, .acac-block {
+  width: 50%;  /* Adjust width for left-right positioning */
+  display: flex;
+  justify-content: center;
+}
+
+.flip-block {
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.flip-block .front, .flip-block .back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-block .back {
+  transform: rotateY(180deg);
+}
+
+/* Optional: Add style to societies and boards blocks */
+.societies-boards {
+  margin-top: 30px;
+}
+
+.flip-blocks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flip-block {
+  width: 20%;
+  margin-right: 20px;
+  height: 300px; /* Adjust size */
+}
+
+.flip-block.large {
+  width: 50%; /* Larger size for SAC and ACAC */
+  height: 300px; /* Larger height for SAC and ACAC */
+}
+
+
+.flip-block .back {
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Center items horizontally if needed */
+  padding: 10px;
+}
+
+.flip-block .back h3 {
+  margin-bottom: 10px; /* Space below the heading */
+}
+
+.flip-block .back p {
+  flex-grow: 1; /* Allow the paragraph to grow and take available space */
+  margin-bottom: 10px; /* Space below the paragraph */
+}
+
+.flip-block .back a {
+  margin-top: 10px; /* Space above the link */
+}
+
+.left-aligned {
+  text-align: left;
+  color: grey;
+}
+
+
+
+

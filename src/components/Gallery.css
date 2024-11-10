@@ -1,0 +1,18 @@
+.gallery-container {
+    padding: 40px;
+    text-align: center;
+    background-color: #faf0e6;
+    border-radius: 8px;
+  }
+  
+  .gallery-container h1 {
+    font-size: 36px;
+    color: #d2691e;
+  }
+  
+  .gallery-container p {
+    font-size: 18px;
+    color: #8b4513;
+    line-height: 1.6;
+  }
+  

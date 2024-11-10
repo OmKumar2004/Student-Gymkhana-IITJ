@@ -1,0 +1,171 @@
+/* About Us Page Styling */
+.about-us {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .student-senate {
+    padding: 50px;
+    background-color: #f5f5f5;
+  }
+  
+  .student-senate h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .content-box {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .student-council {
+    padding: 50px;
+    background-color: #e0e0e0;
+  }
+  
+  .student-council h3 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .council-blocks {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .block {
+    width: 45%;
+    height: 200px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .block:hover {
+    transform: rotateY(180deg);
+  }
+  
+  .block-content {
+    backface-visibility: hidden;
+    padding: 20px;
+  }
+  
+  .societies {
+    padding: 50px;
+    background-color: #f5f5f5;
+  }
+  
+  .societies h3 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .societies-blocks {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .board-block {
+    width: 45%;
+    height: 200px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .board-block:hover {
+    transform: rotateY(180deg);
+  }
+  
+  .board-block .block-content {
+    backface-visibility: hidden;
+    padding: 20px;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .footer-column {
+    width: 30%;
+  }
+  
+  .footer-column h4 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icon {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .social-icon:hover {
+    color: #007BFF;
+  }
+  
+  .footer-column ul {
+    list-style-type: none;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .get-in-touch-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .get-in-touch-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .copyright {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+  }
+  
+  .copyright p {
+    margin: 0;
+  }
+  
