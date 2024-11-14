@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import Header from './headerpage'
+import Header from './headerpage';
 
 const HomePage = () => {
   return (
@@ -37,12 +37,19 @@ const HomePage = () => {
       <div className="intro-section">
         <div className="intro-bg">
           <div className="intro-content">
-            <h1>Logo</h1>
-            <h2>Student Gymkhana IIT Jodhpur</h2>
-            <p>Welcomes You!</p>
+            <div className="intro-header">
+              <img src="/logo_SG.png" alt="Logo" className="intro-logo" />
+              <div className="intro-text">
+                <h1>Student Gymkhana</h1>
+                <h2>IIT Jodhpur</h2>
+                <hr className="divider" />
+                <p className="welcome-text">Welcomes You!</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
 
       {/* About Section (appears under Student Senate) */}
       <div id="about" className="about-section">

@@ -3,21 +3,21 @@ import './Team.css';
 
 // Sample data for each team section
 const genSecyData = [
-  { id: 1, initials: 'SS', imageUrl: 'path/to/image1.jpg', name: 'John Doe', email: 'johndoe@example.com' },
-  { id: 2, initials: 'SAC', imageUrl: 'path/to/image2.jpg', name: 'Jane Smith', email: 'janesmith@example.com' },
-  { id: 3, initials: 'ACAC', imageUrl: 'path/to/image3.jpg', name: 'Alice Johnson', email: 'alicejohnson@example.com' },
+  { id: 1, initials: 'SS', imageUrl: '/assets/user.png', name: 'Shashank Asthana', email: 'gensecy_ss@iitj.ac.in' },
+  { id: 2, initials: 'SAC', imageUrl: '/assets/user.png', name: 'Manan Srivastava', email: 'gensecy_sac@iitj.ac.in' },
+  { id: 3, initials: 'ACAC', imageUrl: '/assets/user.png', name: 'Dhyan Naik', email: 'gensecy_acac@iitj.ac.in' },
 ];
 
 const vpData = [
-  { id: 1, initials: 'Cultural Board', imageUrl: 'path/to/image4.jpg', name: 'Tom White', email: 'tomwhite@example.com' },
-  { id: 2, initials: 'Technical Board', imageUrl: 'path/to/image5.jpg', name: 'Sarah Black', email: 'sarahblack@example.com' },
+  { id: 1, initials: 'CDC', imageUrl: '/assets/user.png', name: 'Anurag Verma', email: 'verma.47@iitj.ac.in' },
+  { id: 2, initials: 'SAA', imageUrl: '/assets/user.png', name: 'Tharakadatta Hegde', email: 'saa@iitj.ac.in' },
   // Add more VPs as needed
 ];
 
 const secyData = [
-  { id: 1, initials: 'Sports Society', imageUrl: 'path/to/image6.jpg', name: 'Robert Green', email: 'robertgreen@example.com' },
-  { id: 2, initials: 'Art Society', imageUrl: 'path/to/image7.jpg', name: 'Lucy Brown', email: 'lucybrown@example.com' },
-  { id: 3, initials: 'Drama Society', imageUrl: 'path/to/image8.jpg', name: 'markdoe@example.com' },
+  { id: 1, initials: 'Literature Society', imageUrl: '/assets/user.png', name: 'Pragati Sinha', email: 'literature@iitj.ac.in' },
+  { id: 2, initials: 'InSiDe Society', imageUrl: '/assets/user.png', name: 'Avinash Kumar', email: 'inside@iitj.ac.in' },
+  { id: 3, initials: 'Robotics Society', imageUrl: '/assets/user.png', name: 'Yash Golani', email: 'inside@iitj.ac.in' },
 ];
 
 const TeamSection = ({ title, members }) => (
@@ -43,7 +43,7 @@ const TeamPage = () => {
     <div className="team-page">
       <TeamSection title="Gen Secretary" members={genSecyData} />
       <TeamSection title="Vice Presidents" members={vpData} />
-      <TeamSection title="Secretaries" members={secyData} />
+      <TeamSection title="Secretaries and Coordinators" members={secyData} />
     </div>
   );
 };

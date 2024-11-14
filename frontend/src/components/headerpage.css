@@ -18,16 +18,17 @@ Home Page Styling
 .auth-buttons {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .auth-buttons button {
   padding: 10px 20px;
   margin: 0 10px;
   border: none;
-  background-color: #007BFF;
+  background-color: #383876;
   color: white;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
 .navbar {
@@ -404,7 +405,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #333;
+  background-color: #47476b;
   color: white;
 }
 
@@ -413,9 +414,9 @@ body {
   margin-right: 10px;
 }
 
-.auth-buttons button {
+/* .auth-buttons button {
   margin: 0 10px;
-}
+} */
 
 /* Navbar Section */
 .navbar {
@@ -596,7 +597,7 @@ h3 {
 
 /* Navbar Styling */
 .navbar {
-  background-color: #333;
+  background-color: #383876;
 }
 
 .navbar ul {
@@ -666,8 +667,8 @@ h3 {
 }
 
 .auth-buttons button {
-  margin: 5px;
-  padding: 10px;
+  margin: 1px;
+  padding: 5px;
 }
 
 .navbar ul {
@@ -677,7 +678,7 @@ h3 {
 }
 
 .navbar ul li {
-  margin: 10px;
+  margin: 0px;
 }
 
 .about-section {
@@ -872,4 +873,35 @@ h3 {
 
 
 
+.logged-in-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #0073e6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.username {
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+.logout-btn {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
