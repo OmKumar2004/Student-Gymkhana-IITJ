@@ -186,21 +186,21 @@ import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 const eventsData = [
   {
     id: 1,
-    title: "Tech Fest 2024",
-    startDate: "2024-11-20",
-    endDate: "2024-11-25",
+    title: "Varchas: Sports Fest 2024",
+    startDate: "2024-10-30",
+    endDate: "2024-11-02",
     location: "IIT Jodhpur Campus",
-    description: "A tech event showcasing innovations in AI and Robotics.",
-    status: "upcoming",
+    description: "Varchas, the annual sports festival of IIT Jodhpur, ignites the flames of competition and stands as the largest sporting event in North-West India.",
+    status: "past",
   },
   {
     id: 2,
-    title: "Alumni Meet 2024",
-    startDate: "2024-10-15",
-    endDate: "2024-10-17",
-    location: "Main Auditorium",
-    description: "Annual alumni gathering to network and share experiences.",
-    status: "past",
+    title: "Prometeo: Tech Fest 2025",
+    startDate: "2025-01-17",
+    endDate: "2025-01-19",
+    location: "IIT Jodhpur Campus",
+    description: "",
+    status: "upcoming",
   },
   // Add more events here
 ];

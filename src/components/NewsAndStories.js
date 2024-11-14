@@ -66,24 +66,24 @@ import './NewsAndStories.css';
 const newsData = [
   {
     id: 1,
-    date: "2024-11-01",
-    title: "AI Breakthrough in Healthcare",
-    description: "Exploring recent advancements in AI technology that improve diagnostics.",
-    imageUrl: "path/to/image1.jpg",  // Replace with the actual image paths
+    date: "2024-11-06",
+    title: "Congratulations Dr. Suchetana Chakraborty for prestigious Google Academic Research Award!",
+    description: "This remarkable achievement highlights IIT Jodhpur’s commitment to advancing impactful research and fostering innovation in computer science.",
+    imageUrl: "/assets/news.png",  // Replace with the actual image paths
   },
   {
     id: 2,
     date: "2024-10-20",
-    title: "Campus Innovation Challenge",
-    description: "Highlights from the campus-wide innovation competition.",
-    imageUrl: "path/to/image2.jpg",
+    title: "IIT Jodhpur choosen as the center for GenAI in India",
+    description: "Srijan—the Center of Excellence on Generative AI at IITJodhpur.",
+    imageUrl: "/assets/news.png",
   },
   {
     id: 3,
-    date: "2024-10-10",
-    title: "New Research Center Inaugurated",
-    description: "The new facility focuses on AI and robotics research.",
-    imageUrl: "path/to/image3.jpg",
+    date: "2024-10-26",
+    title: "We are honored to have Shri Jagdeep Dhankhar, Hon'ble Vice-President of India, as the Chief Guest for Convocation",
+    description: "The grand 10th Convocation of IIT Jodhpur on 26th October 2024..",
+    imageUrl: "/assets/news.png",
   },
   // Add more news items here
 ];

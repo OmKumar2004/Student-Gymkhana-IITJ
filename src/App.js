@@ -12,6 +12,9 @@ import LoginPage from './components/LoginPage';
 import './App.css';
 import Header from './components/headerpage';
 import Footer from './components/footer';
+import Noticeboard from './components/noticeboard';
+// import signUp from './backend/signup';
+import Sathi from './components/sathi';
 function App() {
   return (
     <Router>
@@ -27,6 +30,9 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/noticeboard" element={<Noticeboard />} />
+          <Route path="/sathi" element={<Sathi/>} />
+          {/* <Route path="/apis/v1/signup"/> */}
         </Routes>
         <Footer /> 
       </div>
