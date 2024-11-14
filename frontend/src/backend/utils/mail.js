@@ -5,8 +5,8 @@ function mail (fromMail,toMail,subject,text) {
     var transporter = mailer.createTransport({
         service:"gmail",
         auth : {
-            user:"sumeetpatil20004@gmail.com",
-            pass:"Paneer@1109"
+            user:"studentgymkhanaiitj@gmail.com",
+            pass:"studentgymkhana@1511"
         }
     });
     
@@ -28,4 +28,3 @@ function mail (fromMail,toMail,subject,text) {
 }
 
 module.exports = mail
-

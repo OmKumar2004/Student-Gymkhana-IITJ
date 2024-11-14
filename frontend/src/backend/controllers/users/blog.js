@@ -110,12 +110,11 @@ route.put('/:blog_id',connectDB,(req,res) => {
     }
 })
 
-route.post('/',upload.single('image'),(req,res)=> {
+route.post('/',upload.single('image'),connectDB,(req,res)=> {
     try {
-        console.log(req)
-        res.status(200).json({
-            file:req.file
-        })
+
+        req.body.likes = 0
+        let insertQuery = `INSERT INTO ${req.db}.blog (u_mail,image_url,title,description,likes,date) VALUES ('${req.body.u_mail}','${req.body.img}','${req.body.title}','${req.body.description}','${req.body.likes}','${Date.now()}')`
     }
     catch (error) {
         res.status(500).json({message:error.message});
