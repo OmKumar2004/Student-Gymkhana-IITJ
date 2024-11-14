@@ -6,7 +6,8 @@ const storage = multer.diskStorage({
         cb(null,'database/images_blogs');
     },
     filename: (req,file,cb) => {
-        cb(null,Date.now() + path.extname(file.originalname));
+        req.body.img = Date.now() + '_' + req.body.mail + '_' + path.extname(file.originalname);
+        cb(null,req.body.img);
     }
 });
 
