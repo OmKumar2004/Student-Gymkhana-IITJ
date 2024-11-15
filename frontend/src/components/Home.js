@@ -69,12 +69,16 @@ const HomePage = () => {
           <div className="sac-block">
             <div className="flip-block large">
               <div className="front">
-                <img src="sac-logo.png" alt="SAC Logo" />
+                <img id = "sacLogo" src="https://sac.iitj.ac.in/static/img/logo.489465ca.png" alt="SAC Logo" />
+                  <script>
+                    const sacLogo = document.getElementById('sacLogo');
+                    sacLogo.style.filter = 'invert(100%)';
+                  </script>
               </div>
               <div className="back">
                 <h3>SAC</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <Link to="/sac">Know More</Link>
+                <p>The Student Activity Council (SAC) at IIT Jodhpur serves as the backbone of all student-driven initiatives on campus. It organizes a wide range of events, from cultural festivals to technical competitions, fostering creativity and leadership. SAC also provides a platform for students to engage with peers, collaborate on projects, and contribute to the vibrant campus life. Through its efforts, SAC aims to cultivate a well-rounded experience that complements academic pursuits.</p>
+                <Link to="https://sac.iitj.ac.in/">Know More</Link>
               </div>
             </div>
           </div>
@@ -88,7 +92,7 @@ const HomePage = () => {
               <div className="back">
                 <h3>ACAC</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                <Link to="/acac">Know More</Link>
+                <Link to="https://acac.iitj.ac.in/">Know More</Link>
               </div>
             </div>
           </div>
