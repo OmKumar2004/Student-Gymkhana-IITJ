@@ -1,7 +1,8 @@
 const express = require("express")
 const {connectDB,connectdb} = require("../../database/connection")
 const route = express.Router()
-const upload = require("../../utils/multer_setup")
+const upload = require('../../utils/multer_setup')
+const uploadFile = require('../../utils/google_upload')
 
 route.get('/',connectDB,(req,res)=> {
 
@@ -101,22 +102,46 @@ route.put('/:blog_id',connectDB,(req,res) => {
     let updateQuery = `UPDATE TABLE ${req.db}.blog SET likes = likes+1 WHERE blog_id = ${req.params.blog_id}`
 
     req.conn.query(updateQuery,(err,result)=> {
-    
+
+        if(!err){
         req.conn.end()
         return res.status(200).json({ message: 'User signed up successfully!' });
+        }
     })}
     catch (error){
        return res.status(500).json({message:error})
     }
 })
 
-route.post('/',upload.single('image'),connectDB,(req,res)=> {
+route.post('/',
+    upload.single('image'),
+    uploadFile,
+    connectDB,
+    async (req,res)=> {
     try {
-
+        const today = new Date(Date.now());
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1; // Months are zero-based
+        let dd = today.getDate();
+    
+        // Add leading zeros to month and day if needed
+        mm = mm < 10 ? '0' + mm : mm;
+        dd = dd < 10 ? '0' + dd : dd;
         req.body.likes = 0
-        let insertQuery = `INSERT INTO ${req.db}.blog (u_mail,image_url,title,description,likes,date) VALUES ('${req.body.u_mail}','${req.body.img}','${req.body.title}','${req.body.description}','${req.body.likes}','${Date.now()}')`
+        let insertQuery = `INSERT INTO ${req.db}.blog (u_mail,image_url,title,description,likes,date) VALUES ('${req.body.u_mail}','${req.body.image_url}','${req.body.title}','${req.body.description}','${req.body.likes}','${yyyy}-${mm}-${dd}')`
+        
+        req.conn.query(insertQuery,(err,result)=> {
+
+            if(err) return res.status(500).json({message:err})
+
+            if(!err){
+            req.conn.end()
+            res.json({message:"Blog uploaded successfully"})
+            }
+        })
     }
     catch (error) {
+        
         res.status(500).json({message:error.message});
     }
 })
