@@ -4,7 +4,7 @@ function connectdb () {
     var connection = mysql.createConnection({
         host:"localhost",
         user:"root",
-        password:"Om@04#"
+        password:"alpha"
     });
     
     connection.connect(function(err){
@@ -20,7 +20,7 @@ const connectDB = function (req,res,next){
     var connection = mysql.createConnection({
         host:"localhost",
         user:"root",
-        password:"Om@04#"
+        password:"alpha"
     });
     
     connection.connect(function(err){
