@@ -319,232 +319,246 @@
 // };
 
 
-import React, { useState, useEffect } from 'react';
-
-const Noticeboard = () => {
-  const [blogsData, setBlogsData] = useState([]);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        console.log("Fetching blogs...");
-        const response = await fetch('http://localhost:3300/apis/v1/user/blogs'); // Use your backend URL for blogs
-        console.log(response.status);
-
-        if (response.status === 200) {
-          const data = await response.json();
-          setBlogsData(data); // Update the state with the fetched data
-          console.log(data); // Logs the fetched blogs data
-        } else {
-          console.error('Failed to fetch blogs');
-          setError('Failed to fetch blogs');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        setError('Error occurred while fetching blogs');
-      }
-    };
-
-    fetchBlogs();
-  }, []); // Empty dependency array means this effect will run only once after the first render
-
-  return (
-    <div>
-      <h1>Noticeboard</h1>
-      {error && <div className="error">{error}</div>} {/* Display error message if there is any */}
-      <div className="blogs">
-        {blogsData.length > 0 ? (
-          blogsData.map((blog) => (
-            <div key={blog.blog_id} className="blog-card">
-              <h2>{blog.title}</h2>
-              <p>{blog.description}</p>
-              <div>{blog.date}</div>
-              <div>Likes: {blog.likes}</div>
-              {/* You can render more details about the blog here */}
-            </div>
-          ))
-        ) : (
-          <p>No blogs available.</p>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default Noticeboard;
 
 
 
 
-// export default Noticeboard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React, { useState, useEffect } from 'react';
-// import './noticeboard.css';
-// import { FaHeart, FaComment, FaShare, FaUserCircle, FaArrowRight } from 'react-icons/fa';
+// import "./noticeboard.css";
 
 // const Noticeboard = () => {
-//   const [posts, setPosts] = useState([]);
-//   const [newPost, setNewPost] = useState('');
-//   const [comment, setComment] = useState('');
-//   const [userId] = useState('b22cs053@iitj.ac.in'); // Example user ID, replace with actual user
+//   const [blogsData, setBlogsData] = useState([]);
+//   const [error, setError] = useState('');
 
-//   // Fetch posts on component mount
 //   useEffect(() => {
-//     fetch('http://localhost:3300/apis/v1/user/blogs')
-//       .then((response) => response.json())
-//       .then((data) => setPosts(data));
-//   }, []);
+//     const fetchBlogs = async () => {
+//       try {
+//         console.log("Fetching blogs...");
+//         const response = await fetch('http://localhost:3300/apis/v1/user/blogs'); // Use your backend URL for blogs
+//         console.log(response.status);
 
-//   const handleLike = (blogId) => {
-//     fetch(`http://localhost:3300/apis/v1/user/blogs/${blogId}`, {
-//       method: 'PUT',
-//     })
-//       .then((response) => response.json())
-//       .then(() => {
-//         // Update the local posts array to reflect the changes
-//         setPosts(posts.map((post) => 
-//           post.blog_id === blogId ? { ...post, likes: post.likes + 1 } : post
-//         ));
-//       })
-//       .catch((error) => console.error('Error liking the post:', error));
-//   };
-
-//   const handleComment = (blogId) => {
-//     if (comment.trim()) {
-//       const newComment = {
-//         u_mail: userId,
-//         comment: comment,
-//         date: new Date().toISOString(), // Send current date and time
-//       };
-
-//       fetch(`http://localhost:3300/apis/v1/user/blogs/comment/${blogId}`, {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(newComment),
-//       })
-//         .then((response) => response.status === 201 && setComment(''))
-//         .then(() => {
-//           setPosts(posts.map((post) =>
-//             post.blog_id === blogId
-//               ? {
-//                   ...post,
-//                   comments: [
-//                     ...post.comments,
-//                     { comment: comment, comment_user: userId, comment_date: newComment.date },
-//                   ],
-//                 }
-//               : post
-//           ));
-//         })
-//         .catch((error) => console.error('Error posting comment:', error));
-//     }
-//   };
-
-//   const handleNewPost = () => {
-//     const newBlogPost = {
-//       u_mail: userId,
-//       img: '/assets/news.png', // Example image URL
-//       title: 'New Blog Post',
-//       description: newPost,
-//       likes: 0,
+//         if (response.status === 200) {
+//           const data = await response.json();
+//           setBlogsData(data); // Update the state with the fetched data
+//           console.log(data); // Logs the fetched blogs data
+//         } else {
+//           console.error('Failed to fetch blogs');
+//           setError('Failed to fetch blogs');
+//         }
+//       } catch (error) {
+//         console.error('Error:', error);
+//         setError('Error occurred while fetching blogs');
+//       }
 //     };
 
-//     fetch('http://localhost:3300/apis/v1/user/blogs', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(newBlogPost),
-//     })
-//       .then((response) => response.json())
-//       .then((data) => {
-//         setPosts([data, ...posts]);
-//         setNewPost('');
-//       })
-//       .catch((error) => console.error('Error creating new post:', error));
-//   };
+//     fetchBlogs();
+//   }, []); // Empty dependency array means this effect will run only once after the first render
 
 //   return (
-//     <div className="noticeboard">
-//       {/* Add New Post Section */}
-//       <h2>Share Your News</h2>
-//       <div className="new-post">
-//         <FaUserCircle className="poster-avatar" />
-//         <div className="post-input-area">
-//           <textarea
-//             placeholder="Share some news..."
-//             value={newPost}
-//             onChange={(e) => setNewPost(e.target.value)}
-//           />
-//           <div className="post-options">
-//             <span>Add Photo</span>
-//             <span>Add Video</span>
-//             <span>Attach Files</span>
-//             <span>Tag People</span>
-//             <button className="post-button" onClick={handleNewPost}>Post</button>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Post Feed */}
-//       <div className="posts">
-//         {posts.map((post) => (
-//           <div className="post-card" key={post.blog_id}>
-//             {/* Post Header */}
-//             <div className="post-header">
-//               <FaUserCircle className="profile-icon" />
-//               <div className="post-author">
-//                 <h4>{post.user}</h4>
-//                 <span className="post-date">{new Date(post.date).toLocaleDateString()}</span>
-//               </div>
-//               <FaShare className="share-icon" />
+//     <div>
+//       <h1>Noticeboard</h1>
+//       {error && <div className="error">{error}</div>} {/* Display error message if there is any */}
+//       <div className="blogs">
+//         {blogsData.length > 0 ? (
+//           blogsData.map((blog) => (
+//             <div key={blog.blog_id} className="blog-card">
+//               <h2>{blog.title}</h2>
+//               <p>{blog.description}</p>
+//               <div>{blog.date}</div>
+//               <div>Likes: {blog.likes}</div>
+//               {/* You can render more details about the blog here */}
 //             </div>
-
-//             {/* Post Content */}
-//             <div className="post-content">
-//               <img src={post.image_url} alt="Post" className="post-image" />
-//               <div className="post-details">
-//                 <h3>{post.title}</h3>
-//                 <p>{post.content}</p>
-//               </div>
-//             </div>
-
-//             {/* Like and Comment Section */}
-//             <div className="post-actions">
-//               <button
-//                 onClick={() => handleLike(post.blog_id)}
-//                 className={post.likes > 0 ? 'liked' : ''}
-//               >
-//                 <FaHeart /> {post.likes} Likes
-//               </button>
-//               <span className="likes-comments">
-//                 {post.comments.length} Comments
-//               </span>
-//             </div>
-
-//             {/* Comment Section */}
-//             <div className="comment-section">
-//               <FaUserCircle className="profile-icon-small" />
-//               <input
-//                 type="text"
-//                 placeholder="Write a comment..."
-//                 value={comment}
-//                 onChange={(e) => setComment(e.target.value)}
-//               />
-//               {comment && <FaArrowRight onClick={() => handleComment(post.blog_id)} className="comment-submit-icon" />}
-//             </div>
-
-//             {/* Display Comments */}
-//             <div className="comments-list">
-//               {post.comments.map((comment, idx) => (
-//                 <div className="comment-item" key={idx}>
-//                   <strong>{comment.comment_user}</strong>: {comment.comment}
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         ))}
+//           ))
+//         ) : (
+//           <p>No blogs available.</p>
+//         )}
 //       </div>
 //     </div>
 //   );
 // };
 
 // export default Noticeboard;
+
+
+
+
+import React, { useState, useEffect } from "react";
+import "./noticeboard.css";
+import { FaHeart, FaComment, FaShare, FaUserCircle, FaArrowRight } from "react-icons/fa";
+
+const Noticeboard = () => {
+  const [posts, setPosts] = useState([]);
+  const [newPostContent, setNewPostContent] = useState("");
+  const [newPostImage, setNewPostImage] = useState(null); // For image upload
+  const [comment, setComment] = useState("");
+  const [userEmail, setUserEmail] = useState("example@example.com"); // Replace with actual user email
+
+  // Fetch all blogs on component mount
+  useEffect(() => {
+    fetch("http://localhost:3300/apis/v1/users/blog")
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.error("Error fetching posts:", error));
+  }, []);
+
+  // Handle likes
+  const handleLike = (blogId) => {
+    fetch(`http://localhost:3300/apis/v1/users/blog/${blogId}`, {
+      method: "PUT",
+    })
+      .then(() => {
+        setPosts(
+          posts.map((post) =>
+            post.blog_id === blogId
+              ? { ...post, likes: post.likes + 1 }
+              : post
+          )
+        );
+      })
+      .catch((error) => console.error("Error updating likes:", error));
+  };
+
+  // Handle adding a new comment
+  const handleComment = (blogId) => {
+    if (comment.trim()) {
+      fetch(`http://localhost:3300/apis/v1/users/blog/comment/${blogId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ u_mail: userEmail, comment }),
+      })
+        .then(() => {
+          setPosts(
+            posts.map((post) =>
+              post.blog_id === blogId
+                ? {
+                    ...post,
+                    comments: [
+                      ...post.comments,
+                      { comment, comment_user: userEmail, comment_date: new Date().toISOString() },
+                    ],
+                  }
+                : post
+            )
+          );
+          setComment(""); // Clear input
+        })
+        .catch((error) => console.error("Error adding comment:", error));
+    }
+  };
+
+  // Handle new post submission
+  const handleNewPost = () => {
+    const formData = new FormData();
+    formData.append("u_mail", userEmail);
+    formData.append("title", newPostContent.title);
+    formData.append("description", newPostContent.description);
+    if (newPostImage) {
+      formData.append("image", newPostImage);
+    }
+
+    fetch("http://localhost:3300/apis/v1/users/blog", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((newPost) => {
+        setPosts([newPost, ...posts]);
+        setNewPostContent(""); // Clear input
+        setNewPostImage(null); // Clear file input
+      })
+      .catch((error) => console.error("Error creating post:", error));
+  };
+
+  return (
+    <div className="noticeboard">
+      <h2>Share Your News</h2>
+      {/* New Post Section */}
+      <div className="new-post">
+        <FaUserCircle className="poster-avatar" />
+        <div className="post-input-area">
+          <textarea
+            placeholder="Write a title..."
+            value={newPostContent.title || ""}
+            onChange={(e) => setNewPostContent({ ...newPostContent, title: e.target.value })}
+          />
+          <textarea
+            placeholder="Write a description..."
+            value={newPostContent.description || ""}
+            onChange={(e) => setNewPostContent({ ...newPostContent, description: e.target.value })}
+          />
+          <input type="file" onChange={(e) => setNewPostImage(e.target.files[0])} />
+          <button onClick={handleNewPost}>Post</button>
+        </div>
+      </div>
+
+      {/* Posts Section */}
+      <div className="posts">
+        {posts.map((post) => (
+          <div className="post-card" key={post.blog_id}>
+            <div className="post-header">
+              <FaUserCircle className="profile-icon" />
+              <div className="post-author">
+                <h4>{post.user}</h4>
+                <span>{new Date(post.date).toDateString()}</span>
+              </div>
+              <FaShare className="share-icon" />
+            </div>
+
+            <div className="post-content">
+              {post.image_url && <img src={post.image_url} alt="Post" className="post-image" />}
+              <div className="post-details">
+                <h3>{post.title}</h3>
+                <p>{post.content}</p>
+              </div>
+            </div>
+
+            <div className="post-actions">
+              <button onClick={() => handleLike(post.blog_id)}>
+                <FaHeart /> Like ({post.likes})
+              </button>
+              <span>{post.comments.length} Comments</span>
+            </div>
+
+            <div className="comment-section">
+              <input
+                type="text"
+                placeholder="Write a comment..."
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <FaArrowRight onClick={() => handleComment(post.blog_id)} />
+            </div>
+
+            <div className="comments">
+              {post.comments.map((c, idx) => (
+                <div key={idx} className="comment">
+                  <strong>{c.comment_user}</strong>: {c.comment} <span>({new Date(c.comment_date).toDateString()})</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Noticeboard;

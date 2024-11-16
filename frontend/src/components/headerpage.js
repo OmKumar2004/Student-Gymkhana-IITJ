@@ -220,7 +220,7 @@ const Header = () => {
       <nav className="navbar">
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/noticeboard">About Us</Link></li>
+          <li><a href="/#about">About Us</a></li>
           {isLoggedIn && (
             <>
               <li><Link to="/noticeboard">Noticeboard</Link></li>

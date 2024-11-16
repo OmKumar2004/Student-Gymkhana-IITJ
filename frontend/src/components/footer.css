@@ -1,132 +1,114 @@
 /* Footer Styling */
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: #47476b;
-    color: #fff;
-    padding: 30px;
-  }
-  
-  .footer-column {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .logo-column {
-    text-align: left;
-  }
-  
-  .footer-logo {
-    width: 100px;  /* Adjusted the logo width */
-    height: auto;  /* Maintain aspect ratio */
-    margin-bottom: 10px;
-  }
-  
-  .footer-text {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #fff;
-  }
-  
-  .social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-    justify-content: center; /* Center the icons */
-  }
-  
-  .social-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px; /* Increased font size for better visibility */
-  }
-  
-  .social-links a:hover {
-    color: #f6c700; /* Added hover effect for icons */
-  }
-  
-  .footer-column h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .footer-column ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-column ul li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-column ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .contact-column {
-    text-align: right;
-  }
-  
-  .contact-subtitle {
-    color: #f6c700; /* Yellow color */
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .contact-button {
-    background-color: transparent;
-    color: #fff;
-    border: 2px solid #f6c700;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s;
-  }
-  
-  .contact-button:hover {
-    background-color: #f6c700;
-    color: #000;
-  }
-  
-  .logo-column, .footer-column, .contact-column {
-    border-right: 1px dotted #555;
-    padding-right: 20px;
-  }
-  
-  .contact-column {
-    border-right: none;
-  }
-  
-  footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .footer-column {
-    padding: 20px;
-  }
-  
-  .footer-column h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  /* Copyright Section */
-  .copyright {
-    background-color: #000;
-    text-align: center;
-    padding: 10px;
-    color: #fff;
-    font-size: 14px;
-    border-top: 1px solid #555;
-  }
-  
-  .copyright a {
-    color: #f6c700; /* Yellow color */
-    text-decoration: none;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #47476b;
+  color: #fff;
+  padding: 30px;
+  border-top: 1px dotted #555; /* Optional: Add a top border for separation */
+}
+
+.footer-column {
+  flex: 1;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Logo Column */
+.footer-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Links Section */
+.links-row {
+  display: flex;
+  justify-content: space-around; /* Space between the two rows */
+  gap: 20px; /* Adjust gap between two columns */
+}
+
+.links-row ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links-row ul li {
+  margin-bottom: 10px;
+}
+
+.links-row ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.links-row ul li a:hover {
+  color: #f6c700; /* Highlight links on hover */
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 20px;
+}
+
+.social-links a:hover {
+  color: #f6c700;
+}
+
+/* Contact Column */
+.contact-button {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #f6c700;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+  background-color: #f6c700;
+  color: #000;
+}
+
+/* Dotted Dividers */
+.footer-column:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #8e8ea5,
+    #8e8ea5 2px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+/* Copyright Section */
+.copyright {
+  background-color: #1f1f49;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 14px;
+  border-top: 1px solid #555;
+}
+
+.copyright a {
+  color: #f6c700;
+  text-decoration: none;
+}

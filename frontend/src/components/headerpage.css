@@ -754,41 +754,7 @@ h3 {
   padding: 20px;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 40px;
-  background-color: #333;
-  color: white;
-}
 
-.footer-column h4, .footer-column ul {
-  margin-bottom: 20px;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 10px;
-}
-
-.footer-column .social-links a {
-  margin-right: 15px;
-}
-
-.footer-column .social-links a:hover {
-  text-decoration: underline;
-}
-
-.copyright {
-  text-align: center;
-  padding: 20px;
-  background-color: #222;
-  color: white;
-}
 
 
 /* Horizontal line layout */
