@@ -171,6 +171,8 @@ const LoginPage = () => {
         },
         body: JSON.stringify(form),
       });
+
+      console.log(response)
   
       if (response.status !== 200) {
         const errorData = await response.json();
@@ -178,9 +180,11 @@ const LoginPage = () => {
       }
   
       const data = await response.json();
+      console.log(data)
       localStorage.setItem('token', data.token); // Store token in localStorage
       localStorage.setItem('isLoggedIn', true);   // Store login status in localStorage
       localStorage.setItem('username', data.user.username);
+      localStorage.setItem('umail',data.user.email)
       window.location.href = '/'; // Redirect to the home page after login
     } catch (error) {
       setError(error.message);

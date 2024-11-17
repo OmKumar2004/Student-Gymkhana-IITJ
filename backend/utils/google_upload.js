@@ -15,7 +15,12 @@ const drive = google.drive({version:'v3',auth})
 const uploadFile = async function uploadFile(req,res,next){
  
     try{
-        
+    
+    if(!req.file) {
+        req.body.image_url = ""
+        return next()
+    }
+    else {
     const fileStream = new Readable()
     fileStream.push(req.file.buffer)
     fileStream.push(null)
@@ -41,12 +46,16 @@ const uploadFile = async function uploadFile(req,res,next){
         fileId: file.data.id,
         requestBody: {
             role: 'reader',
-            type:'anyone'
+            type:'anyone',
+            withLink:true
         }
     })
-
-    req.body.image_url = file.data.webViewLink
+    console.log(req.headers)
+    if(req.headers["x-image"]) req.body.image_url = file.data.webViewLink
+    else 
+    req.body.image_url = `https://drive.google.com/thumbnail?export=view&id=${file.data.id}`
     next()
+}
 
     } catch (error) {
         console.log(error)

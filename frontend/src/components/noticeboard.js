@@ -409,11 +409,11 @@ const Noticeboard = () => {
   const [newPostContent, setNewPostContent] = useState("");
   const [newPostImage, setNewPostImage] = useState(null); // For image upload
   const [comment, setComment] = useState("");
-  const [userEmail, setUserEmail] = useState("example@example.com"); // Replace with actual user email
+  const [userEmail, setUserEmail] = useState(localStorage.getItem('username')); // Replace with actual user email
 
   // Fetch all blogs on component mount
   useEffect(() => {
-    fetch("http://localhost:3300/apis/v1/users/blog")
+    fetch("http://localhost:3300/apis/v1/user/blogs")
       .then((response) => response.json())
       .then((data) => setPosts(data))
       .catch((error) => console.error("Error fetching posts:", error));
@@ -421,7 +421,7 @@ const Noticeboard = () => {
 
   // Handle likes
   const handleLike = (blogId) => {
-    fetch(`http://localhost:3300/apis/v1/users/blog/${blogId}`, {
+    fetch(`http://localhost:3300/apis/v1/user/blogs/${blogId}`, {
       method: "PUT",
     })
       .then(() => {
@@ -439,10 +439,11 @@ const Noticeboard = () => {
   // Handle adding a new comment
   const handleComment = (blogId) => {
     if (comment.trim()) {
-      fetch(`http://localhost:3300/apis/v1/users/blog/comment/${blogId}`, {
+      console.log(blogId,localStorage.getItem('umail'))
+      fetch(`http://localhost:3300/apis/v1/user/blogs/comment/${blogId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ u_mail: userEmail, comment }),
+        body: JSON.stringify({ u_mail: localStorage.getItem('umail'), comment }),
       })
         .then(() => {
           setPosts(
@@ -466,23 +467,28 @@ const Noticeboard = () => {
 
   // Handle new post submission
   const handleNewPost = () => {
+    console.log(newPostContent.title,localStorage.getItem('umail'));
     const formData = new FormData();
-    formData.append("u_mail", userEmail);
+    formData.append("u_mail", localStorage.getItem('umail'));
     formData.append("title", newPostContent.title);
     formData.append("description", newPostContent.description);
     if (newPostImage) {
       formData.append("image", newPostImage);
     }
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ": " + pair[1]); // Log key-value pairs in FormData
+    }
 
-    fetch("http://localhost:3300/apis/v1/users/blog", {
+    fetch("http://localhost:3300/apis/v1/user/blogs", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((newPost) => {
-        setPosts([newPost, ...posts]);
-        setNewPostContent(""); // Clear input
-        setNewPostImage(null); // Clear file input
+        window.location.reload()
+        // setPosts([newPost, ...posts]);
+        // setNewPostContent(""); // Clear input
+        // setNewPostImage(null); // Clear file input
       })
       .catch((error) => console.error("Error creating post:", error));
   };
@@ -523,8 +529,8 @@ const Noticeboard = () => {
             </div>
 
             <div className="post-content">
-              {post.image_url && <img src={post.image_url} alt="Post" className="post-image" />}
-              <div className="post-details">
+              {post.image_url && <img src ={post.image_url} alt="Post" className="post-image" />}
+            <div className="post-details">
                 <h3>{post.title}</h3>
                 <p>{post.content}</p>
               </div>

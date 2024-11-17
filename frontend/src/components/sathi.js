@@ -41,7 +41,7 @@ const SathiPage = () => {
   // Fetch resources from backend
   const fetchResources = async () => {
     try {
-      const response = await fetch("http://localhost:3300/apis/v1/users/sathi", {
+      const response = await fetch("http://localhost:3300/apis/v1/user/sathi", {
         headers: {
           "Content-Type": "application/json",
           "X-filter": search,
@@ -78,6 +78,7 @@ const SathiPage = () => {
       });
       setSubmitted(true);
       setFeedbackForm({ to: "", subject: "", description: "" });
+      window.location.reload();
     } catch (error) {
       console.error("Error sending feedback:", error);
     }
@@ -87,20 +88,23 @@ const SathiPage = () => {
   const handleAddResourceSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("u_mail", "useremail@domain.com");
+    formData.append("u_mail", localStorage.getItem('umail'));
     formData.append("title", resourceForm.title);
     formData.append("category", resourceForm.category);
     formData.append("description", resourceForm.description);
     formData.append("resource", resourceForm.file);
 
     try {
-      await fetch("http://localhost:3300/apis/v1/users/sathi", {
+      await fetch("http://localhost:3300/apis/v1/user/sathi", {
         method: "POST",
         body: formData,
+        headers:{
+          "x-image":"false"
+        }
       });
       setResourceAdded(true);
       setResourceForm({ title: "", category: "", description: "", file: null });
-      fetchResources();
+      window.location.reload();
     } catch (error) {
       console.error("Error adding resource:", error);
     }
@@ -155,6 +159,7 @@ const SathiPage = () => {
                 <th>Category</th>
                 <th>Description</th>
                 <th>Uploaded By</th>
+                <th>File Url</th>
               </tr>
             </thead>
             <tbody>
@@ -163,7 +168,8 @@ const SathiPage = () => {
                   <td>{resource.title}</td>
                   <td>{resource.category}</td>
                   <td>{resource.description}</td>
-                  <td>{resource.u_name}</td>
+                  <td>{resource.mail}</td>
+                  <td><a href = {resource.file_url}>File Url</a></td>
                 </tr>
               ))}
             </tbody>

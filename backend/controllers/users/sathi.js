@@ -8,11 +8,14 @@ const route = express.Router()
 route.get('/',connectDB,(req,res)=> {
     
     try {
-        let getQuery = `SELECT r.file_url,r.title,r.category,r.description,u.u_name FROM ${req.db}.resource r JOIN ${req.db}.user u on u.u_mail = r.u_mail`
 
-        if(req.headers["X-filter"]) getQuery+=` WHERE r.category LIKE '%${req.headers["X-filter"]}%' or r.title LIKE '${req.headers["X-filter"]}' or r.description LIKE '${req.headers["X-filter"]}'`
+        let getQuery = `SELECT r.file_url,r.title,r.category,r.description,u.mail FROM ${req.db}.resource r JOIN ${req.db}.user u on u.mail = r.u_mail`
+
+        if(req.headers["x-filter"]) getQuery+=` WHERE r.category LIKE '%${req.headers["x-filter"]}%' or r.title LIKE '%${req.headers["x-filter"]}%' or r.description LIKE '%${req.headers["x-filter"]}%'`
 
         req.conn.query(getQuery,(err,result)=> {
+
+            console.log(result)
 
             if(err) return res.status(500).json({message:err})
             

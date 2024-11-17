@@ -10,7 +10,6 @@ router.get('/',connectDB,(req,res)=> {
         req.conn.query(getQuery,(err,result)=> {
 
             req.conn.end()
-            console.log(result)
             return res.json(result)
         })
     }

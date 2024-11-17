@@ -179,6 +179,7 @@ const Header = () => {
     const storedUsername = localStorage.getItem('username');
     setIsLoggedIn(loginStatus === 'true');
     setUsername(storedUsername);
+
   }, []);
   const handleLogout = () => {
     localStorage.removeItem('token');
